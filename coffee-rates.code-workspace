@@ -5,8 +5,9 @@
 		}
 	],
 	"settings": {
-		"typescriptHero.imports.disableImportRemovalOnOrganize": false,
 		"typescriptHero.imports.organizeOnSave": true,
-		"typescriptHero.imports.stringQuoteStyle": "'",
+		"typescript.updateImportsOnFileMove.enabled": "always",
+		"typescriptHero.imports.disableImportRemovalOnOrganize": false,
+		"typescriptHero.imports.insertSemicolons": true,
 	}
 }

@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 
 import logo from './logo.svg';
 
-class App extends React.Component {
-  render() {
+class App extends Component {
+  public render() {
     return (
       <div className="App">
         <header className="App-header">
