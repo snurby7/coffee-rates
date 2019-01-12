@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescriptHero.imports.disableImportRemovalOnOrganize": false,
+		"typescriptHero.imports.organizeOnSave": true,
+		"typescriptHero.imports.stringQuoteStyle": "'",
+	}
+}
