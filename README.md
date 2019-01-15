@@ -1,6 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Coffee Rates
 
-# Guide
+This project is just going to be a collection of coffees and where they're from so it can be rated and all that fun.
+Similar to untappd, but for coffee since that's something useful to me and I'm sure other coffee fans!
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Package Manager
 
@@ -44,13 +47,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `yarn run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back! Just don't do it!**
 
 ## Learn More
 
