@@ -6,6 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Yarn](https://yarnpkg.com/en/)
 
+## Backend/API
+
+[Apollo](https://www.apollographql.com)
+[Apollo CLI](https://github.com/apollographql/apollo-tooling)
+
+## Database/Storage
+
+Open to a suggestion otherwise Mongo DB Atlas
+
 ## Available Scripts
 
 In the project directory, you can run:

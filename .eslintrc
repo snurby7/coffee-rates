@@ -4,14 +4,10 @@
     "browser": true,
     "jest/globals": true
   },
-  "extends": [
-    "airbnb",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["airbnb", "plugin:prettier/recommended"],
   "rules": {
-    "strict": 0
+    "strict": 0,
+    "linebreak-style": 0
   },
-  "plugins": [
-    "jest"
-  ]
+  "plugins": ["jest"]
 }
