@@ -9,10 +9,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Yarn](https://yarnpkg.com/en/)
 
+## Unit Testing
+
+[Jest](https://jestjs.io/)<br>
+[react-testing-library](https://github.com/kentcdodds/react-testing-library)
+
 ## Backend/API
 
-[Apollo](https://www.apollographql.com)
-[Apollo CLI](https://github.com/apollographql/apollo-tooling)
+[Apollo](https://www.apollographql.com)<br>
+[Apollo CLI](https://github.com/apollographql/apollo-tooling)<br>
 
 ## Database/Storage
 
@@ -56,6 +61,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Hooks
+
 https://reactjs.org/docs/hooks-intro.html and https://scotch.io/tutorials/getting-started-with-react-hooks
 
 ### Code Splitting
