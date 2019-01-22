@@ -23,6 +23,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Open to a suggestion otherwise Mongo DB Atlas
 
+## Start untappd
+
+- To start up the project you may need to do the following
+- `yarn install` from the root directory
+  - may need to also run `yarn install` from the client folder as well
+- You should then see GraphQL running on port 4000 and the UI on port 3000
+
 ## Available Scripts
 
 In the project directory, you can run:

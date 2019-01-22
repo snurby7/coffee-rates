@@ -1,28 +1,26 @@
 {
-  "name": "coffee-rates",
-  "version": "0.1.0",
-  "private": true,
+  "name": "insights",
+  "version": "1.0.0",
+  "license": "MIT",
   "dependencies": {
-    "apollo-server": "^2.3.1",
-    "graphql": "^14.0.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3"
+    "@types/classnames": "^2.2.7",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.3",
+    "redux": "^4.0.1",
+    "redux-devtools": "^3.5.0",
+    "typescript": "^3.2.4"
   },
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "client": "cd client/src && yarn start",
-    "server": "cd backend/ && node index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint-js": "eslint 'src/**/*.{js,jsx}'",
     "lint-ts": "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+  "proxy": "http://localhost:4000/",
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -30,17 +28,17 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/react": "^16.7.20",
+    "@types/react-dom": "^16.0.11",
     "babel-eslint": "^10.0.1",
-    "concurrently": "^4.1.0",
     "eslint": "^5.12.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-prettier": "^3.4.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.3",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.3",
-    "nodemon": "^1.18.9",
     "prettier": "^1.15.3",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
