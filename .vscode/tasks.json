@@ -15,7 +15,16 @@
       "label": "yarn client",
       "type": "shell",
       "command": "yarn client",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "server-test",
       "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
     }
   ]
 }

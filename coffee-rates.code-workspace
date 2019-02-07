@@ -9,18 +9,18 @@
 		"typescript.updateImportsOnFileMove.enabled": "always",
 		"typescriptHero.imports.disableImportRemovalOnOrganize": false,
 		"typescriptHero.imports.insertSemicolons": true,
+		"jshint.enable": false
 	},
 	"extensions": {
 		"recommendations": [
-			"hookyqr.beautify",
-			"exodiusstudios.comment-anchors",
-			"dbaeumer.vscode-eslint",
-			"eamodio.gitlens",
-			"heaths.vscode-guid",
+			"aaron-bond.better-comments",
 			"christian-kohler.npm-intellisense",
-			"esbenp.prettier-vscode",
+			"dbaeumer.vscode-eslint",
 			"eg2.tslint",
-			"chakrounanas.turbo-console-log",
+			"esbenp.prettier-vscode",
+			"heaths.vscode-guid",
+			"hookyqr.beautify",
+			"kisstkondoros.vscode-codemetrics",
 			"rbbit.typescript-hero",
 			"visualstudioexptteam.vscodeintellicode"
 		]
