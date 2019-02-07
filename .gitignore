@@ -1,24 +1,19 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# GitIgnore file, prevent files/folders
+# from  being committed.
+# remove all cached files git rm -r --cached .
 
-# dependencies
-/node_modules
-client/node_modules/
-/.pnp
-.pnp.js
 
-# testing
-/coverage
+# IntelliJ project files
+*.iml
+.idea/
 
-# production
-/build
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Built/Transpiled files
+**/build/
+**/src/**/*.js
+**/src/**/*.js.map
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
+# Misc
+**/node_modules/
+**/package-lock.json
