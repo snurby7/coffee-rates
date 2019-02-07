@@ -16,8 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Backend/API
 
-[Apollo](https://www.apollographql.com)<br>
-[Apollo CLI](https://github.com/apollographql/apollo-tooling)<br>
+[OvernightJS](https://www.npmjs.com/package/@overnightjs/core)<br>
 
 ## Database/Storage
 
@@ -28,7 +27,7 @@ Open to a suggestion otherwise Mongo DB Atlas
 - To start up the project you may need to do the following
 - `yarn install` from the root directory
   - may need to also run `yarn install` from the client folder as well
-- You should then see GraphQL running on port 4000 and the UI on port 3000
+- You should then see OvernightJs running on port 3001 and the UI on port 3000
 
 ## Available Scripts
 
