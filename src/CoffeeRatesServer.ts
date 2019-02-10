@@ -3,22 +3,19 @@
  *
  * created by Sean Maxwell Jan 21, 2019
  */
-
-import * as path from 'path';
-import * as express from 'express';
-import * as bodyParser from 'body-parser';
 import { Server } from '@overnightjs/core';
+import * as bodyParser from 'body-parser';
+import * as express from 'express';
+import * as path from 'path';
 
+import UserController from './controllers/user/UserController';
 
 class CoffeeRatesServer extends Server {
 
-    private readonly _SERVER_START_MSG = 'Demo server started on port: ';
-    private readonly _DEV_MSG = 'Express Server is running in development mode. Start the React ' +
-        'development server "npm run start:react" to develop front-end content. Back-end is ' +
-        'currently running on port: ';
+    private readonly _SERVER_START_MSG = 'Coffee Rates server started on port: ';
+    private readonly _DEV_MSG = 'Express Server currently running on port: ';
 
     private _port = 3001;
-
 
     constructor() {
         super();
@@ -40,7 +37,10 @@ class CoffeeRatesServer extends Server {
 
 
     private _setupControllers(): void {
-        // super.addControllers(controllers);
+        const controllers = [
+            new UserController(),
+        ];
+        super.addControllers(controllers);
     }
 
 
