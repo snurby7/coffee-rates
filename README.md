@@ -20,7 +20,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Database/Storage
 
-Open to a suggestion otherwise Mongo DB Atlas
+Mongo DB Atlas
+
+## Set up
+
+```
+  // create the following file in src/controllers/key/   connection-string.ts
+  export const enum ConnectionData {
+    UserString = '<CONNECTION STRING>',
+  }
+```
 
 ## Start untappd
 
