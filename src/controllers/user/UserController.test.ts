@@ -6,14 +6,16 @@ import { SuperTest, Test } from 'supertest';
 import TestServer from '../shared/TestServer.test';
 import UserController from './UserController';
 import { IUser } from '../../contracts';
+import { Connection } from 'mongoose';
 
 describe('UserController', () => {
-  const userController = new UserController();
   let agent: SuperTest<Test>;
 
   beforeAll(done => {
     // Activate the routes
     const server = new TestServer();
+    const mongo: Connection = <Connection>{};
+    const userController = new UserController(mongo);
     server.setController(userController);
 
     // Start supertest

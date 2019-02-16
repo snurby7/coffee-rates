@@ -6,8 +6,10 @@
 import { Server } from '@overnightjs/core';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
+import * as mongoose from 'mongoose';
 import * as path from 'path';
 
+import { ConnectionData } from './controllers/key/connection-string';
 import UserController from './controllers/user/UserController';
 
 class CoffeeRatesServer extends Server {
@@ -25,7 +27,7 @@ class CoffeeRatesServer extends Server {
         this.app.use(bodyParser.urlencoded({extended: true}));
 
         // Setup the controllers
-        this._setupControllers();
+        this.setUpMongo();
 
         // Point to front-end code
         if (process.env.NODE_ENV === 'development') {
@@ -35,10 +37,26 @@ class CoffeeRatesServer extends Server {
         }
     }
 
+    private setUpMongo() {
+        // this is our MongoDB database
+        const dbRoute = ConnectionData.UserString;
+        mongoose.connect(
+        dbRoute,
+        { useNewUrlParser: true }
+        );
 
-    private _setupControllers(): void {
+        const db = mongoose.connection;
+        db.once('open', () => {
+            console.log('Connected to Mongo, initializing Controllers');
+            this._setupControllers(db);
+        });
+        db.on('error', () => console.error('MongoDB connection error:'));
+    }
+
+
+    private _setupControllers(db: mongoose.Connection): void {
         const controllers = [
-            new UserController(),
+            new UserController(db),
         ];
         super.addControllers(controllers);
     }
