@@ -11,6 +11,7 @@ import * as path from 'path';
 
 import { ConnectionData } from './controllers/key/connection-string';
 import UserController from './controllers/user/UserController';
+import CoffeeController from './controllers/coffee/CoffeeController';
 
 class CoffeeRatesServer extends Server {
 
@@ -57,6 +58,7 @@ class CoffeeRatesServer extends Server {
     private _setupControllers(db: mongoose.Connection): void {
         const controllers = [
             new UserController(db),
+            new CoffeeController(db)
         ];
         super.addControllers(controllers);
     }
