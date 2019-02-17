@@ -35,16 +35,23 @@ class UserController {
   }
 
   @Post(':id')
-  private async updateUser(req: Request, res: Response): Promise<UpdateWriteOpResult> {
+  private async updateUser(req: Request, res: Response): Promise<void> {
     const userId = req.params.id;
     return await this._db
       .collection('users')
-      .updateOne({ _id: new ObjectID(`${userId}`) }, { $set: req.body }, { upsert: false });
+      .updateOne({ _id: new ObjectID(`${userId}`) }, { $set: req.body }, { upsert: false })
+      .then((result) => {
+        res.status(250).send(result);
+      });
   }
 
   @Post('')
-  private async addUser(req: Request, res: Response): Promise<InsertOneWriteOpResult> {
-    return await this._db.collection('users').insertOne(req.body);
+  private async addUser(req: Request, res: Response): Promise<void> {
+    return await this._db.collection('users')
+    .insertOne(req.body)
+    .then(result => {
+      res.status(250).send(result);
+    });
   }
 }
 
