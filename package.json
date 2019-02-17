@@ -8,7 +8,7 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "server": "tsc-watch --onSuccess \"node start.js dev\" --onFailure \"echo Beep! Compilation Failed\" ",
     "client": "cd ./src/client && yarn start",
-    "test": "tsc && node start.js test",
+    "test:server": "tsc && node start.js test",
     "build": "sh ./util/buildForProd.sh"
   },
   "dependencies": {

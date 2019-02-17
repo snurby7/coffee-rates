@@ -1,12 +1,11 @@
-import { Controller, Get, Post } from '@overnightjs/core';
+import { Controller, Delete, Get, Post } from '@overnightjs/core';
+import { ObjectID } from 'bson';
 import { Request, Response } from 'express';
+import { InsertOneWriteOpResult, UpdateWriteOpResult } from 'mongodb';
 import { Connection } from 'mongoose';
-
-import { IUser } from '../../contracts';
 
 @Controller('api/user')
 class UserController {
-
   private _db: Connection;
 
   constructor(db: Connection) {
@@ -14,25 +13,38 @@ class UserController {
   }
 
   @Get(':id')
-  private getUser(req: Request, res: Response): void {
-    try {
-      const userId = req.params.id;
-      const response: IUser = {
-        name: 'sample',
-        id: 'sampleId',
-      };
-      res.status(250).json({ response });
-    } catch (err) {
-      console.error(err);
-      res.status(400).json({ response: 'Server Error, check the logs!' });
-    }
+  private async getUser(req: Request, res: Response): Promise<void> {
+    const userId = req.params.id;
+    return await this._db
+      .collection('users')
+      .findOne({ _id: new ObjectID(`${userId}`) })
+      .then(user => {
+        res.status(250).send(user);
+      });
+  }
+
+  @Delete(':id')
+  private async deleteUser(req: Request, res: Response): Promise<void> {
+    const userId = req.params.id;
+    return await this._db
+      .collection('users')
+      .deleteOne({ _id: new ObjectID(`${userId}`) })
+      .then(response => {
+        res.status(250).send(response.result);
+      });
+  }
+
+  @Post(':id')
+  private async updateUser(req: Request, res: Response): Promise<UpdateWriteOpResult> {
+    const userId = req.params.id;
+    return await this._db
+      .collection('users')
+      .updateOne({ _id: new ObjectID(`${userId}`) }, { $set: req.body }, { upsert: false });
   }
 
   @Post('')
-  private addUser(req: Request, res: Response): void {
-    const newUser = req.body;
-    // TODO save the user somewhere
-    res.status(250).json({ success: true });
+  private async addUser(req: Request, res: Response): Promise<InsertOneWriteOpResult> {
+    return await this._db.collection('users').insertOne(req.body);
   }
 }
 
