@@ -1,7 +1,6 @@
 import { Controller, Delete, Get, Post } from '@overnightjs/core';
 import { ObjectID } from 'bson';
 import { Request, Response } from 'express';
-import { InsertOneWriteOpResult, UpdateWriteOpResult } from 'mongodb';
 import { Connection } from 'mongoose';
 
 @Controller('api/user')
