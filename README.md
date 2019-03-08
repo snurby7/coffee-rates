@@ -81,7 +81,10 @@ https://reactjs.org/docs/hooks-intro.html and https://scotch.io/tutorials/gettin
 
 ### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting<br>
+Also see here https://css-tricks.com/using-react-loadable-for-code-splitting-by-components-and-routes/ for how to make things loadable
+
+### 
 
 ### Analyzing the Bundle Size
 
