@@ -1,7 +1,7 @@
 if (process.argv[2] === 'dev') {
 
     process.env.NODE_ENV = 'development';
-    require('./src/CoffeeRatesServer');
+    require('./backend/CoffeeRatesServer');
 
 } else if (process.argv[2] === 'prod') {
 
@@ -16,7 +16,7 @@ if (process.argv[2] === 'dev') {
     let jasmine = new Jasmine();
 
     jasmine.loadConfig({
-        "spec_dir": "src",
+        "spec_dir": "backend",
         "spec_files": [
             "./controllers/**/*.test.js"
         ],
