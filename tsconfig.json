@@ -24,8 +24,8 @@
     ]
   },
   "include": [
-    "./src/CoffeeRatesServer.ts",
-    "./src/controllers/**/*"
+    "./backend/CoffeeRatesServer.ts",
+    "./backend/controllers/**/*"
   ],
   "exclude": [
     "**/node_modules/",
