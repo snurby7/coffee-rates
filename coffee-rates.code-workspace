@@ -26,9 +26,10 @@
 			"esbenp.prettier-vscode",
 			"heaths.vscode-guid",
 			"hookyqr.beautify",
+			"jpoissonnier.vscode-styled-components",
 			"kisstkondoros.vscode-codemetrics",
 			"rbbit.typescript-hero",
-			"visualstudioexptteam.vscodeintellicode"
+			"visualstudioexptteam.vscodeintellicode",
 		]
 	}
 }

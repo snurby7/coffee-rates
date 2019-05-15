@@ -1,21 +1,12 @@
-import './App.css';
-
 import React from 'react';
+import styled from 'styled-components';
 
-import logo from './logo.svg';
+const TestStyledComp = styled.div`
+color: red
+`;
 
 const App = () => (
-  <div className='App'>
-    <header className='App-header'>
-      <img src={logo} className='App-logo' alt='logo' />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-        Learn React
-      </a>
-    </header>
-  </div>
+  <TestStyledComp>This is just a showcase </TestStyledComp>
 );
 
 export default App;
