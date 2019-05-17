@@ -2,6 +2,7 @@
   "name": "coffee-rates-ui",
   "version": "0.1.0",
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "@types/jest": "24.0.13",
     "@types/node": "10.12.21",
     "@types/react": "16.8.17",
@@ -16,7 +17,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
@@ -29,7 +29,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/reach__router": "^1.2.4",
     "@types/styled-components": "4.1.15",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "styled-components": "4.2.0"
   }
 }
