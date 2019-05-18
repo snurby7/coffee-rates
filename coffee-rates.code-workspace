@@ -1,50 +1,54 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"docthis.includeDescriptionTag": true,
-		"docthis.includeTypes": false,
-		"typescriptHero.imports.removeTrailingIndex": true,
-		"typescriptHero.imports.organizeOnSave": true,
-		"typescript.updateImportsOnFileMove.enabled": "always",
-		"typescriptHero.imports.disableImportRemovalOnOrganize": false,
-		"typescriptHero.imports.insertSemicolons": true,
-		"jshint.enable": false,
-		"files.exclude": {
-			"**/.git": true,
-			"**/.DS_Store": true,
-			"**/*.js.map": true,
-			"**/*.js": {"when": "$(basename).ts"},
-	},
-	"workbench.colorCustomizations": {
-		"activityBar.background": "#7f86e9",
-		"activityBar.foreground": "#15202b",
-		"activityBar.inactiveForeground": "#15202b99",
-		"activityBarBadge.background": "#f6c9cc",
-		"activityBarBadge.foreground": "#15202b",
-		"titleBar.activeBackground": "#535de2",
-		"titleBar.inactiveBackground": "#535de299",
-		"titleBar.activeForeground": "#e7e7e7",
-		"titleBar.inactiveForeground": "#e7e7e799"
-	}
-	},
-	"extensions": {
-		"recommendations": [
-			"aaron-bond.better-comments",
-			"christian-kohler.npm-intellisense",
-			"dbaeumer.vscode-eslint",
-			"eg2.tslint",
-			"esbenp.prettier-vscode",
-			"heaths.vscode-guid",
-			"hookyqr.beautify",
-			"joelday.docthis",
-			"jpoissonnier.vscode-styled-components",
-			"kisstkondoros.vscode-codemetrics",
-			"rbbit.typescript-hero",
-			"visualstudioexptteam.vscodeintellicode",
-		]
-	}
+    "folders": [{
+        "path": "."
+    }],
+    "settings": {
+        "docthis.includeDescriptionTag": true,
+        "docthis.includeTypes": false,
+        "typescriptHero.imports.removeTrailingIndex": true,
+        "typescriptHero.imports.organizeOnSave": true,
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "typescriptHero.imports.disableImportRemovalOnOrganize": false,
+        "typescriptHero.imports.insertSemicolons": true,
+        "jshint.enable": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "files.exclude": {
+            "**/.git": true,
+            "**/.DS_Store": true,
+            "**/*.js.map": true,
+            "**/*.js": {
+                "when": "$(basename).ts"
+            },
+        },
+        "workbench.colorCustomizations": {
+            "activityBar.background": "#7f86e9",
+            "activityBar.foreground": "#15202b",
+            "activityBar.inactiveForeground": "#15202b99",
+            "activityBarBadge.background": "#f6c9cc",
+            "activityBarBadge.foreground": "#15202b",
+            "titleBar.activeBackground": "#535de2",
+            "titleBar.inactiveBackground": "#535de299",
+            "titleBar.activeForeground": "#e7e7e7",
+            "titleBar.inactiveForeground": "#e7e7e799"
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "aaron-bond.better-comments",
+            "christian-kohler.npm-intellisense",
+            "dbaeumer.vscode-eslint",
+            "eg2.tslint",
+            "esbenp.prettier-vscode",
+            "heaths.vscode-guid",
+            "hookyqr.beautify",
+            "joelday.docthis",
+            "jpoissonnier.vscode-styled-components",
+            "kisstkondoros.vscode-codemetrics",
+            "rbbit.typescript-hero",
+            "visualstudioexptteam.vscodeintellicode",
+        ]
+    }
 }

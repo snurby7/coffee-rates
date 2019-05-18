@@ -15,6 +15,11 @@ export interface ICoffeeProfile {
    */
   roasterName: string;
   /**
+   * @description The name the roaster uses to identify the coffee.
+   * @memberof ICoffeeProfile
+   */
+  coffeeName: string;
+  /**
    * @description Region the beans came from (i.e. Guatemala, Kenya, etc)
    * @memberof ICoffeeProfile
    */
