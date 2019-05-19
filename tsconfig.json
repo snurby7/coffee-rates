@@ -25,7 +25,8 @@
     },
     "include": [
         "./packages/overnight-server/CoffeeRatesServer.ts",
-        "./packages/overnight-server/controllers/**/*"
+        "./packages/overnight-server/controllers/**/*",
+        "./packages/cr-common/**/*"
     ],
     "exclude": [
         "**/node_modules/",

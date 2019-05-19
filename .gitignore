@@ -16,7 +16,7 @@
 
 # Keys
 keys/
-packages/overnight-server/controllers/key/connection-string.ts
+packages/cr-common/keys/*
 
 # Misc
 **/node_modules/

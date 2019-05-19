@@ -3,7 +3,34 @@
 This project is just going to be a collection of coffees and where they're from so it can be rated and all that fun.
 Similar to untappd, but for coffee since that's something useful to me and I'm sure other coffee fans!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Structure
+
+This project utilizes a [yarn workspace](https://yarnpkg.com/en/docs/workspaces) structure. The idea here is that it will make one central point of iteration.
+A workspace structure allows for the sharing of common code across projects. It will also allow for a potential Vue.js/Angular/etc. project to built as well.
+The yarn workspace also provides the same optional work to the backend with each option being a new package.
+
+### Adding a package
+
+- Add a folder to the `packages/<my-folder>` directory
+- From within `packages/<my-folder>` run `yarn init` and follow the prompts
+- If you need to reference another package add `<package-name>` to `dependencies` property in your `/<my-folder>/package.json`
+
+Any new package will get picked up by the root workspace<br>
+To view known workspaces run `yarn workspaces list` from the root directory.
+
+## Existing Packages
+
+### `overnight-server`
+
+This package houses the overnightJs server configuration.
+
+### `react-client`
+
+This is the react implementation of the coffee rates UI
+
+### `cr-common`
+
+This is where common interfaces and shared code will live. It allows for easy sharing between the server/client
 
 ## Package Manager
 
@@ -22,83 +49,37 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Mongo DB Atlas
 
-## Set up
+## Initial Set Up Configuration
 
-```
-  // create the following file in src/controllers/key/   connection-string.ts
-  export const enum ConnectionData {
-    UserString = '<CONNECTION STRING>',
-    // String format example   'mongodb+srv://<username>:<password>@bruns-projects-5dltw.mongodb.net/coffee-rates',
-  }
+```{javascript}
+  // packages/cr-common/key/MongoConnection.ts
+  export const MongoConnectionUrl = 'mongodb+srv://<username>:<password>@bruns-projects-5dltw.mongodb.net/coffee-rates';
 ```
 
-## Start untappd
+## Start coffee
 
-- To start up the project you may need to do the following
+- To start up the project you will need to do the following
 - `yarn install` from the root directory
   - may need to also run `yarn install` from the client folder as well
 - You should then see OvernightJs running on port 3001 and the UI on port 3000
 
 ## Available Scripts
 
-In the project directory, you can run:
+### `yarn start:react`
 
-### `yarn start`
+This will run the react client and use `concurrently` to run the OvernightJS server.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `yarn start:overnightServer`
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This will just spin up the Overnight server. You can spin up the server and use Postman (or similar) to send
+calls at the server for testing/development.
+
+### `yarn start:react-client`
+
+This will just spin up the react client. There will be no server, so no API requests will hit the backend unless you
+run `yarn start` instead. Useful if you just want to build something in the UI without a server need.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back! Just don't do it!**
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Hooks
-
-https://reactjs.org/docs/hooks-intro.html and https://scotch.io/tutorials/getting-started-with-react-hooks
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting<br>
-Also see here https://css-tricks.com/using-react-loadable-for-code-splitting-by-components-and-routes/ for how to make things loadable
-
-###
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+This is special. It will use the entire workspace and go to each package and run whatever is in the `package.json` as the `test` script.
+Important to note that they must be run without watch mode or else it will stop in the package. This is why the `react-client` has two commands.

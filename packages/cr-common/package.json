@@ -1,7 +1,7 @@
 {
     "description": "Collection of shared functionalities for coffee-rates",
     "name": "cr-common",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "scripts": {
         "start": "echo \"Nothing to see here.\"",
         "test": "echo \"Nothing to see here.\""
