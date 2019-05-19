@@ -4,7 +4,7 @@ import { UrlFormatUtility } from './UrlFormatUtility';
 
 export const ApiUtility = {
   /**
-   * @description A wrapper around the fetch operation in case my needs ever hange
+   * @description A wrapper around the fetch operation in case my needs ever change
    *
    * @template T The Object that the query is of the type of
    * @param {string} route The route that needs to be hit
