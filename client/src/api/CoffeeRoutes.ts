@@ -1,3 +1,3 @@
 export const CoffeeRoutes = {
-  addCoffee: '/api/coffee/add',
+  addCoffee: '/api/coffee',
 };

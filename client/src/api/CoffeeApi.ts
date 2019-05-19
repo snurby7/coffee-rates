@@ -4,7 +4,7 @@ import { ApiUtility } from '../util';
 import { CoffeeRoutes } from './CoffeeRoutes';
 
 const handleServerResponse = (response: IServerResponse<any>) => {
-  if (response.responseCode !== 200) {
+  if (response.errmsg && response.errmsg.length > 0) {
     return Promise.reject('Internal Server Error');
   }
   return response;

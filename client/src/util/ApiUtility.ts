@@ -36,6 +36,7 @@ export const ApiUtility = {
     }).catch(error => {
       alert(error);
     })) as Response;
+    console.log(response);
     const result = await response.json();
     return result;
   },

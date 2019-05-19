@@ -1,3 +1,3 @@
 export const enum ConnectionData {
-  UserString = 'mongodb+srv://ryan:Z8DviGh9iybilzLk@bruns-projects-5dltw.mongodb.net/admin',
+  UserString = 'mongodb+srv://snurby:NS1vEqPsPr5FApds60MHFQZSJ506@bruns-projects-5dltw.mongodb.net/test',
 }

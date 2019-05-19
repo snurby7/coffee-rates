@@ -38,18 +38,30 @@ type AddCoffeeFormProps = {
 };
 
 const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
-  const [coffee, setCoffee] = useState({ userId } as ICoffeeProfile);
+  const defaultCoffee: ICoffeeProfile = {
+    userId,
+    roasterName: '',
+    coffeeName: '',
+    region: '',
+    url: '',
+    purchaseDate: '',
+    notes: '',
+    rating: 0,
+  };
+  const [coffee, setCoffee] = useState(defaultCoffee);
   const coffeeScores: number[] = [1, 2, 3, 4, 5];
 
-  const handleCoffeeSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleCoffeeSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    CoffeeApi.addCoffee(coffee)
-      .then(() => {
-        console.log('success');
-      })
-      .catch(error => {
+    CoffeeApi.addCoffee(coffee).then(
+      () => {
+        alert('Save Successful');
+        setCoffee(defaultCoffee);
+      },
+      error => {
         console.log(error);
-      });
+      }
+    );
   };
   // Show a save successfull message on success
   return (
