@@ -10,13 +10,13 @@
 
 # Built/Transpiled files
 **/build/
-**/backend/**/*.js
-**/backend/**/*.js.map
+**/**/*.js
+**/**/**/*.js.map
 
 
 # Keys
 keys/
-src/controllers/key/connection-string.ts
+packages/overnight-server/controllers/key/connection-string.ts
 
 # Misc
 **/node_modules/

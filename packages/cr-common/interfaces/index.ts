@@ -1,3 +1,3 @@
 export * from './ICoffeeProfile';
-export * from './IRequest';
+export * from './IServerResponse';
 export * from './IUser';

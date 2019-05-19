@@ -1,10 +1,11 @@
 import { Controller, Delete, Get, Post } from '@overnightjs/core';
 import { ObjectID } from 'bson';
+import { ICoffeeProfile } from 'cr-common';
 import { Response } from 'express';
 import { Connection } from 'mongoose';
 
 import { MongoCollections } from '../../constants';
-import { ICoffeeProfile, IRequest } from '../../contracts';
+import { IRequest } from '../../contracts';
 
 @Controller('api/coffee')
 class CoffeeController {
