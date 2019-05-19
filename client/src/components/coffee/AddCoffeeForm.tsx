@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 
+import { CoffeeApi } from '../../api/CoffeeApi';
 import { ICoffeeProfile } from '../../contracts';
 
 const StyledForm = styled.form`
@@ -37,18 +38,20 @@ type AddCoffeeFormProps = {
 };
 
 const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
-  const [coffee, setCoffee] = useState({} as ICoffeeProfile);
+  const [coffee, setCoffee] = useState({ userId } as ICoffeeProfile);
   const coffeeScores: number[] = [1, 2, 3, 4, 5];
 
   const handleCoffeeSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const placeHolder = () => Promise.resolve('this is just a placeholder for the API');
-
-    const result = await placeHolder();
-    console.log(result);
+    CoffeeApi.addCoffee(coffee)
+      .then(() => {
+        console.log('success');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
-
+  // Show a save successfull message on success
   return (
     <StyledForm onSubmit={handleCoffeeSubmit}>
       <StyledLabel>
@@ -112,7 +115,7 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
           onChange={event => setCoffee({ ...coffee, notes: event.target.value })}
         />
       </StyledLabel>
-      <StyledInputButton type="submit" value="Submit" />
+      <StyledInputButton type='submit' value='Submit' />
     </StyledForm>
   );
 };

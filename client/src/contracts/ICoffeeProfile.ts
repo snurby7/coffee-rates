@@ -39,4 +39,9 @@ export interface ICoffeeProfile {
    * @memberof ICoffeeProfile
    */
   notes?: string;
+  /**
+   * @description The ID for the user who wants to add the new coffee
+   * @memberof ICoffeeProfile
+   */
+  userId: string;
 }
