@@ -3,6 +3,7 @@ import { ObjectID } from 'bson';
 import { Response } from 'express';
 import { Connection } from 'mongoose';
 
+import { MongoCollections } from '../../constants';
 import { ICoffeeProfile, IRequest } from '../../contracts';
 
 @Controller('api/coffee')
@@ -17,7 +18,7 @@ class CoffeeController {
   public async getCoffee(req: IRequest, res: Response): Promise<void> {
     const coffeeId = req.params.id;
     return await this._db
-      .collection('coffees')
+      .collection(MongoCollections.Coffees)
       .findOne<ICoffeeProfile>({ _id: new ObjectID(`${coffeeId}`) })
       .then(
         coffee => {
@@ -33,7 +34,7 @@ class CoffeeController {
   public async deleteCoffee(req: IRequest, res: Response): Promise<void> {
     const coffeeId = req.params.id;
     return await this._db
-      .collection('coffees')
+      .collection(MongoCollections.Coffees)
       .deleteOne({ _id: new ObjectID(`${coffeeId}`) })
       .then(response => {
         res.status(204).send(response.result);
@@ -44,7 +45,7 @@ class CoffeeController {
   public async updateCoffee(req: IRequest, res: Response): Promise<void> {
     const coffeeId = req.params.id;
     return await this._db
-      .collection('coffees')
+      .collection(MongoCollections.Coffees)
       .updateOne({ _id: new ObjectID(`${coffeeId}`) }, { $set: req.body }, { upsert: false })
       .then(result => {
         res.status(204).send(result.result);
@@ -54,7 +55,7 @@ class CoffeeController {
   @Post('')
   public async addCoffee(req: IRequest<ICoffeeProfile>, res: Response): Promise<void> {
     return await this._db
-      .collection('coffees')
+      .collection(MongoCollections.Coffees)
       .insertOne(req.body)
       .then(
         (/* success */) => {
