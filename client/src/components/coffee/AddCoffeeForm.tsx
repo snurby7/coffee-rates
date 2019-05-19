@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { CoffeeApi } from '../../api/CoffeeApi';
 import { ICoffeeProfile } from '../../contracts';
+import { WindowUtility } from '../../util';
 
 const StyledForm = styled.form`
   display: flex;
@@ -55,7 +56,7 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
     event.preventDefault();
     CoffeeApi.addCoffee(coffee).then(
       () => {
-        alert('Save Successful');
+        WindowUtility.showAlert('Save Successful!');
         setCoffee(defaultCoffee);
       },
       error => {

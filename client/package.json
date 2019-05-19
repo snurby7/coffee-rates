@@ -32,6 +32,8 @@
         "@types/reach__router": "^1.2.4",
         "@types/styled-components": "4.1.15",
         "eslint-plugin-react-hooks": "^1.6.0",
+        "react-test-renderer": "^16.8.6",
+        "react-testing-library": "^7.0.0",
         "styled-components": "4.2.0"
     }
 }
