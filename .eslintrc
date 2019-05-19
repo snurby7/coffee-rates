@@ -7,7 +7,9 @@
   "extends": ["airbnb", "plugin:prettier/recommended"],
   "rules": {
     "strict": 0,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
-  "plugins": ["jest"]
+  "plugins": ["jest", "react-hooks"]
 }

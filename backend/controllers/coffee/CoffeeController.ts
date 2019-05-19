@@ -1,8 +1,10 @@
 import { Controller, Delete, Get, Post } from '@overnightjs/core';
 import { ObjectID } from 'bson';
-import { Request, Response } from 'express';
-import { InsertOneWriteOpResult, UpdateWriteOpResult } from 'mongodb';
+import { Response } from 'express';
 import { Connection } from 'mongoose';
+
+import { MongoCollections } from '../../constants';
+import { ICoffeeProfile, IRequest } from '../../contracts';
 
 @Controller('api/coffee')
 class CoffeeController {
@@ -13,45 +15,56 @@ class CoffeeController {
   }
 
   @Get(':id')
-  private async getCoffee(req: Request, res: Response): Promise<void> {
+  public async getCoffee(req: IRequest, res: Response): Promise<void> {
     const coffeeId = req.params.id;
     return await this._db
-      .collection('coffees')
-      .findOne({ _id: new ObjectID(`${coffeeId}`) })
-      .then(coffee => {
-        res.status(250).send(coffee);
-      });
+      .collection(MongoCollections.Coffees)
+      .findOne<ICoffeeProfile>({ _id: new ObjectID(`${coffeeId}`) })
+      .then(
+        coffee => {
+          res.status(204).send(coffee);
+        },
+        error => {
+          res.status(400).send({ success: false });
+        }
+      );
   }
 
   @Delete(':id')
-  private async deleteCoffee(req: Request, res: Response): Promise<void> {
+  public async deleteCoffee(req: IRequest, res: Response): Promise<void> {
     const coffeeId = req.params.id;
     return await this._db
-      .collection('coffees')
+      .collection(MongoCollections.Coffees)
       .deleteOne({ _id: new ObjectID(`${coffeeId}`) })
       .then(response => {
-        res.status(250).send(response.result);
+        res.status(204).send(response.result);
       });
   }
 
   @Post(':id')
-  private async updateCoffee(req: Request, res: Response): Promise<void> {
+  public async updateCoffee(req: IRequest, res: Response): Promise<void> {
     const coffeeId = req.params.id;
     return await this._db
-      .collection('coffees')
+      .collection(MongoCollections.Coffees)
       .updateOne({ _id: new ObjectID(`${coffeeId}`) }, { $set: req.body }, { upsert: false })
-      .then((result) => {
-        res.status(250).send(result);
+      .then(result => {
+        res.status(204).send(result.result);
       });
   }
 
   @Post('')
-  private async addCoffee(req: Request, res: Response): Promise<void> {
-    return await this._db.collection('coffees')
-    .insertOne(req.body)
-    .then(result => {
-      res.status(250).send(result);
-    });
+  public async addCoffee(req: IRequest<ICoffeeProfile>, res: Response): Promise<void> {
+    return await this._db
+      .collection(MongoCollections.Coffees)
+      .insertOne(req.body)
+      .then(
+        (/* success */) => {
+          res.send({ success: true });
+        },
+        (/* error */) => {
+          res.status(400).send({ success: false });
+        }
+      );
   }
 }
 

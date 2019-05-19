@@ -28,6 +28,7 @@ Mongo DB Atlas
   // create the following file in src/controllers/key/   connection-string.ts
   export const enum ConnectionData {
     UserString = '<CONNECTION STRING>',
+    // String format example   'mongodb+srv://<username>:<password>@bruns-projects-5dltw.mongodb.net/coffee-rates',
   }
 ```
 
@@ -84,7 +85,7 @@ https://reactjs.org/docs/hooks-intro.html and https://scotch.io/tutorials/gettin
 This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting<br>
 Also see here https://css-tricks.com/using-react-loadable-for-code-splitting-by-components-and-routes/ for how to make things loadable
 
-### 
+###
 
 ### Analyzing the Bundle Size
 
