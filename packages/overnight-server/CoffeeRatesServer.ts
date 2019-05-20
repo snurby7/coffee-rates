@@ -1,7 +1,5 @@
 /**
- * Express Server file.
- *
- * created by Sean Maxwell Jan 21, 2019
+ * The main access point for starting the OvernightJs server.
  */
 import { Server } from '@overnightjs/core';
 import * as bodyParser from 'body-parser';
@@ -12,6 +10,7 @@ import * as path from 'path';
 
 import CoffeeController from './controllers/coffee/CoffeeController';
 import UserController from './controllers/user/UserController';
+
 
 class CoffeeRatesServer extends Server {
   private readonly _SERVER_START_MSG = 'Coffee Rates server started on port: ';
