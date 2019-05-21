@@ -1,21 +1,13 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "yarn dev",
-      "type": "shell",
-      "command": "yarn dev",
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
-    },
-    {
-      "label": "yarn client",
-      "type": "shell",
-      "command": "yarn client",
-      "problemMatcher": []
-    },
-  ]
+    "version": "2.0.0",
+    "tasks": [{
+        "label": "yarn start:react",
+        "type": "shell",
+        "command": "yarn start:react",
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+    }]
 }

@@ -1,8 +1,8 @@
+import { ICoffeeProfile } from 'cr-common';
 import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
 import { CoffeeApi } from '../../api/CoffeeApi';
-import { ICoffeeProfile } from '../../contracts';
 import { WindowUtility } from '../../util';
 import AddCoffeeForm from './AddCoffeeForm';
 
