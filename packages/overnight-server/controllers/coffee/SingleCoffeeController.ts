@@ -8,7 +8,7 @@ import { MongoCollections } from '../../constants';
 import { IRequest } from '../../contracts';
 
 @Controller('api/coffee')
-class CoffeeController {
+class SingleCoffeeController {
   private _db: Connection;
 
   constructor(db: Connection) {
@@ -69,4 +69,4 @@ class CoffeeController {
   }
 }
 
-export default CoffeeController;
+export default SingleCoffeeController;
