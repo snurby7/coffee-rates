@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { CoffeeApi } from '../../api/CoffeeApi';
 import { ICoffeeProfile } from '../../contracts';
 import { WindowUtility } from '../../util';
+import CoffeeStars from './CoffeeStars';
+
 
 const StyledForm = styled.form`
   display: flex;
@@ -34,6 +36,11 @@ const StyledInputButton = styled.input`
   border-style: outset;
 `;
 
+const StyledComponent = styled.span`
+  display: flex;
+  flex-direction: row;
+`;
+
 type AddCoffeeFormProps = {
   userId: string;
 };
@@ -50,7 +57,6 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
     rating: 0,
   };
   const [coffee, setCoffee] = useState(defaultCoffee);
-  const coffeeScores: number[] = [1, 2, 3, 4, 5];
 
   const handleCoffeeSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -105,21 +111,13 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
         />
       </StyledLabel>
       <StyledLabel>
-        Rating
-        {/*
-            @todo Replace Select options with CoffeeStars
-            @body Updat the below select to use the coffee star component built in #25
-          */}
-        <select
-          value={coffee.rating}
-          onChange={event => setCoffee({ ...coffee, rating: parseInt(event.target.value, 10) })}
-        >
-          {coffeeScores.map(score => (
-            <option key={score} value={score}>
-              {score}
-            </option>
-          ))}
-        </select>
+        <StyledComponent>
+          Rating <br />
+          <CoffeeStars
+            value={coffee.rating}
+            onChange={(event: number) => setCoffee({ ...coffee, rating: event })}
+          />
+        </StyledComponent>
       </StyledLabel>
       <StyledLabel>
         Notes
