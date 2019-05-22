@@ -10,7 +10,7 @@ const CoffeeIcon = (event: any) => {
   if (hover) {
     fillColor = hoverColor;
   } else {
-    fillColor = event.index < event.hoverValue ? selectedColor : notSelectedColor;
+    fillColor = event.index < event.hoverValue ? hoverColor : notSelectedColor;
   }
   if (event.hoverValue === 0) {
     fillColor = event.index <= event.value ? selectedColor : notSelectedColor;
