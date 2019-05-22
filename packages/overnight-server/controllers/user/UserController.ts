@@ -12,7 +12,7 @@ class UserController {
   }
 
   @Get(':id')
-  private async getUser(req: Request, res: Response): Promise<void> {
+  async getUser(req: Request, res: Response): Promise<void> {
     const userId = req.params.id;
     return await this._db
       .collection('users')
@@ -23,7 +23,7 @@ class UserController {
   }
 
   @Delete(':id')
-  private async deleteUser(req: Request, res: Response): Promise<void> {
+  async deleteUser(req: Request, res: Response): Promise<void> {
     const userId = req.params.id;
     return await this._db
       .collection('users')
@@ -34,23 +34,24 @@ class UserController {
   }
 
   @Post(':id')
-  private async updateUser(req: Request, res: Response): Promise<void> {
+  async updateUser(req: Request, res: Response): Promise<void> {
     const userId = req.params.id;
     return await this._db
       .collection('users')
       .updateOne({ _id: new ObjectID(`${userId}`) }, { $set: req.body }, { upsert: false })
-      .then((result) => {
+      .then(result => {
         res.status(250).send(result);
       });
   }
 
   @Post('')
-  private async addUser(req: Request, res: Response): Promise<void> {
-    return await this._db.collection('users')
-    .insertOne(req.body)
-    .then(result => {
-      res.status(250).send(result);
-    });
+  async addUser(req: Request, res: Response): Promise<void> {
+    return await this._db
+      .collection('users')
+      .insertOne(req.body)
+      .then(result => {
+        res.status(250).send(result);
+      });
   }
 }
 

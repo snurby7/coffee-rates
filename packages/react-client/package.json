@@ -1,5 +1,7 @@
 {
-    "name": "coffee-rates-ui",
+    "name": "coffee-rates-react-ui",
+    "license": "MIT",
+    "description": "React portion of the coffee-rates",
     "version": "0.1.0",
     "dependencies": {
         "@reach/router": "^1.2.1",
@@ -7,6 +9,7 @@
         "@types/node": "10.12.21",
         "@types/react": "16.8.17",
         "@types/react-dom": "16.8.4",
+        "cr-common": "0.0.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",
         "react-scripts": "3.0.1",
@@ -15,7 +18,8 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "react-scripts test --watchAll=false",
+        "test:dev": "react-scripts test --watchAll=true",
         "eject": "react-scripts eject"
     },
     "proxy": "http://localhost:3001",

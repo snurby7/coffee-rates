@@ -1,8 +1,8 @@
+import { ICoffeeProfile } from 'cr-common';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 
 import { CoffeeApi } from '../../api/CoffeeApi';
-import { ICoffeeProfile } from '../../contracts';
 import { WindowUtility } from '../../util';
 import CoffeeStars from './CoffeeStars';
 
@@ -126,7 +126,7 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
           onChange={event => setCoffee({ ...coffee, notes: event.target.value })}
         />
       </StyledLabel>
-      <StyledInputButton type='submit' value='Submit' />
+      <StyledInputButton type="submit" value="Submit" />
     </StyledForm>
   );
 };

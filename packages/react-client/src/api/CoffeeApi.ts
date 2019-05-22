@@ -1,5 +1,5 @@
-import { ICoffeeProfile } from '../contracts';
-import { IServerResponse } from '../contracts/IServerResponse';
+import { ICoffeeProfile, IServerResponse } from 'cr-common';
+
 import { ApiUtility } from '../util';
 import { CoffeeRoutes } from './CoffeeRoutes';
 
