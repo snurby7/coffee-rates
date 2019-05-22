@@ -1,4 +1,4 @@
-import { ICoffeeProfile, IServerResponse } from 'cr-common';
+import { ICoffeePageRequest, ICoffeePageResponse, ICoffeeProfile, IServerResponse } from 'cr-common';
 
 import { ApiUtility } from '../util';
 import { CoffeeRoutes } from './CoffeeRoutes';
@@ -20,6 +20,21 @@ export const CoffeeApi = {
     const response: IServerResponse<void> = await ApiUtility.postRequest(
       CoffeeRoutes.addCoffee,
       addRequest
+    );
+    return handleServerResponse(response);
+  },
+
+  /**
+   * @description Page the available coffees in the server
+   * @param pageRequest The request to retrieve containing where to start and the page size.
+   * @returns A IServerResponse containing the coffee data
+   */
+  async pageCoffeeList(
+    pageRequest: ICoffeePageRequest
+  ): Promise<IServerResponse<ICoffeePageResponse>> {
+    const response: IServerResponse<ICoffeePageResponse> = await ApiUtility.postRequest(
+      CoffeeRoutes.pageCoffees,
+      pageRequest
     );
     return handleServerResponse(response);
   },

@@ -1,5 +1,5 @@
 import { Controller, Post } from '@overnightjs/core';
-import { ICoffeePageRequest } from 'cr-common';
+import { ICoffeePageRequest, ICoffeePageResponse, IServerResponse } from 'cr-common';
 import { Response } from 'express';
 import { Connection } from 'mongoose';
 
@@ -38,7 +38,16 @@ class CoffeesController {
       .toArray()
       .then(response => {
         const { results, totalResults } = response[0];
-        res.send({ results: results, totalResults: totalResults[0].count });
+        const serverResponse: IServerResponse<ICoffeePageResponse> = {
+          response: {
+            data: results,
+            pageStart: pageStart,
+            pageEnd: pageStart + maxPageSize,
+            totalResults: totalResults[0].count,
+          },
+          errmsg: undefined,
+        };
+        res.send(serverResponse);
       });
   }
 }
