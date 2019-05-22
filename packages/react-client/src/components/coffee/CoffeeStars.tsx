@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 
 import CoffeeIcon from './CoffeeIcon';
 
+type CoffeeStarsProps = {
+  value: number;
+  onChange: (newValue: number) => void;
+};
 
-const coffeeScores: number[] = [1, 2, 3, 4, 5];
-
-const CoffeeStars = (event: any) => {
+const CoffeeStars = (event: CoffeeStarsProps) => {
+  const coffeeScores: number[] = [1, 2, 3, 4, 5];
   const [value, setValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(0);
 

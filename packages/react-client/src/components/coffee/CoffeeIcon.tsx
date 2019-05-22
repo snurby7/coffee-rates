@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 
-const CoffeeIcon = (event: any) => {
+type CoffeeIconProps = {
+  index: number;
+  value: number;
+  hoverValue: number;
+  onValueChange: (newValue: number) => void;
+  onHoverValueChange: (newHoverValue: number) => void;
+}
+
+const CoffeeIcon = (event: CoffeeIconProps) => {
   const [hover, setHover] = useState(false);
   const selectedColor = '#4e342e';
   const notSelectedColor = '#bdbdbd';
@@ -16,17 +24,16 @@ const CoffeeIcon = (event: any) => {
     fillColor = event.index <= event.value ? selectedColor : notSelectedColor;
   }
 
-  const toggleHover = (e: any) => {
+  const toggleHover = () => {
     setHover(!hover);
     event.onHoverValueChange(!hover ? event.index : 0);
   }
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: SyntheticEvent) => {
     event.onValueChange(event.index);
     event.onHoverValueChange(0);
     e.preventDefault();
   };
-
 
   return (
     <span onClick={handleClick}>
