@@ -1,9 +1,13 @@
 import { Controller, Post } from '@overnightjs/core';
-import { ICoffeePageRequest, ICoffeePageResponse, IServerResponse } from 'cr-common';
+import {
+  ICoffeePageRequest,
+  ICoffeePageResponse,
+  IServerResponse,
+  MongoCollections,
+} from 'cr-common';
 import { Response } from 'express';
 import { Connection } from 'mongoose';
 
-import { MongoCollections } from '../../constants';
 import { IRequest } from '../../contracts';
 
 @Controller('api/coffees/')
