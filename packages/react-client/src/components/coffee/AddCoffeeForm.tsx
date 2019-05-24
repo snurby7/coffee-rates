@@ -36,7 +36,7 @@ const StyledInputButton = styled.input`
   border-style: outset;
 `;
 
-const StyledComponent = styled.span`
+const StyledCoffeeStarSpan = styled.span`
   display: flex;
   flex-direction: row;
 `;
@@ -111,13 +111,13 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
         />
       </StyledLabel>
       <StyledLabel>
-        <StyledComponent>
+        <StyledCoffeeStarSpan>
           Rating <br />
           <CoffeeStars
             value={coffee.rating}
-            onChange={(event: number) => setCoffee({ ...coffee, rating: event })}
+            onChange={(rating: number) => setCoffee({ ...coffee, rating })}
           />
-        </StyledComponent>
+        </StyledCoffeeStarSpan>
       </StyledLabel>
       <StyledLabel>
         Notes

@@ -6,9 +6,9 @@ type CoffeeIconProps = {
   hoverValue: number;
   onValueChange: (newValue: number) => void;
   onHoverValueChange: (newHoverValue: number) => void;
-}
+} 
 
-const CoffeeIcon = (event: CoffeeIconProps) => {
+const CoffeeIcon = (props: CoffeeIconProps) => {
   const [hover, setHover] = useState(false);
   const selectedColor = '#4e342e';
   const notSelectedColor = '#bdbdbd';
@@ -18,21 +18,21 @@ const CoffeeIcon = (event: CoffeeIconProps) => {
   if (hover) {
     fillColor = hoverColor;
   } else {
-    fillColor = event.index < event.hoverValue ? hoverColor : notSelectedColor;
+    fillColor = props.index < props.hoverValue ? hoverColor : notSelectedColor;
   }
-  if (event.hoverValue === 0) {
-    fillColor = event.index <= event.value ? selectedColor : notSelectedColor;
+  if (props.hoverValue === 0) {
+    fillColor = props.index <= props.value ? selectedColor : notSelectedColor;
   }
 
   const toggleHover = () => {
     setHover(!hover);
-    event.onHoverValueChange(!hover ? event.index : 0);
+    props.onHoverValueChange(!hover ? props.index : 0);
   }
 
   const handleClick = (e: SyntheticEvent) => {
-    event.onValueChange(event.index);
-    event.onHoverValueChange(0);
     e.preventDefault();
+    props.onValueChange(props.index);
+    props.onHoverValueChange(0);
   };
 
   return (
