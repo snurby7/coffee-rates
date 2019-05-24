@@ -11,6 +11,7 @@
 # Built/Transpiled files
 **/build/
 **/**/*.js
+!**/**/start.js
 **/**/**/*.js.map
 
 
