@@ -8,9 +8,9 @@ import * as express from 'express';
 import * as mongoose from 'mongoose';
 import * as path from 'path';
 
-import CoffeeController from './controllers/coffee/CoffeeController';
+import CoffeesController from './controllers/coffee/CoffeesController';
+import SingleCoffeeController from './controllers/coffee/SingleCoffeeController';
 import UserController from './controllers/user/UserController';
-
 
 class CoffeeRatesServer extends Server {
   private readonly _SERVER_START_MSG = 'Coffee Rates server started on port: ';
@@ -49,7 +49,11 @@ class CoffeeRatesServer extends Server {
   }
 
   private _setupControllers(db: mongoose.Connection): void {
-    const controllers = [new UserController(db), new CoffeeController(db)];
+    const controllers = [
+      new CoffeesController(db),
+      new UserController(db),
+      new SingleCoffeeController(db),
+    ];
     super.addControllers(controllers);
   }
 
