@@ -1,18 +1,15 @@
 import React from 'react';
 
 import AddCoffeeForm from '../../components/coffee/AddCoffeeForm';
-import { IReachLinkProps } from '../../contracts';
+import { IAuthenticationProps, IReachLinkProps } from '../../contracts';
 
-interface IAddCoffeePageProps extends IReachLinkProps {
-  // TODO: this could eventually have the userID passed so it's found by the user
-}
+interface IAddCoffeePageProps extends IReachLinkProps, IAuthenticationProps {}
 
-const AddCoffeePage: React.FC<IAddCoffeePageProps> = () => {
-  // TODO: Ideally this will be a userId if https://github.com/snurby7/coffee-rates/issues/20 is ever done
-  const mockUserId = 'mock-user-id';
+const AddCoffeePage: React.FC<IAddCoffeePageProps> = (props: IAddCoffeePageProps) => {
+  console.log(props.userId);
   return (
     <main>
-      <AddCoffeeForm userId={mockUserId} />
+      <AddCoffeeForm userId={props.userId} />
     </main>
   );
 };

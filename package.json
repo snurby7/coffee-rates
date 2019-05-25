@@ -15,5 +15,8 @@
     "dependencies": {
         "concurrently": "^4.1.0",
         "nodemon": "^1.18.9"
+    },
+    "devDependencies": {
+        "@types/react": "16.8.18"
     }
 }
