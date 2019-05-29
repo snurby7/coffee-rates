@@ -16,19 +16,19 @@ The yarn workspace also provides the same optional work to the backend with each
 - If you need to reference another package add `<package-name>` to `dependencies` property in your `/<my-folder>/package.json`
 
 Any new package will get picked up by the root workspace<br>
-To view known workspaces run `yarn workspaces list` from the root directory.
+To view known workspaces run `yarn workspaces info` from the root directory.
 
 ## Existing Packages
 
-### `overnight-server`
+### `@cr/overnight-server`
 
 This package houses the overnightJs server configuration.
 
-### `react-client`
+### `@cr/react-client`
 
 This is the react implementation of the coffee rates UI
 
-### `cr-common`
+### `@cr/common`
 
 This is where common interfaces and shared code will live. It allows for easy sharing between the server/client
 

@@ -1,4 +1,9 @@
-import { ICoffeePageRequest, ICoffeePageResponse, ICoffeeProfile, IServerResponse } from 'cr-common';
+import {
+  ICoffeePageRequest,
+  ICoffeePageResponse,
+  ICoffeeProfile,
+  IServerResponse,
+} from '@cr/common';
 
 import { ApiUtility } from '../util';
 import { CoffeeRoutes } from './CoffeeRoutes';

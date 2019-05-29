@@ -1,11 +1,11 @@
 {
-    "name": "overnight-server",
+    "name": "@cr/overnight-server",
     "version": "0.0.1",
     "license": "MIT",
     "main": "start.js",
     "dependencies": {
         "@overnightjs/core": "1.3.10",
-        "cr-common": "0.0.2",
+        "@cr/common": "0.0.2",
         "express": "4.16.4",
         "jasmine": "^3.4.0",
         "mongoose": "5.4.13"

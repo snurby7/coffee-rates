@@ -1,4 +1,4 @@
-import { ICoffeeProfile } from 'cr-common';
+import { ICoffeeProfile } from '@cr/common';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 
