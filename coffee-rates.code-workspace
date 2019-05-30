@@ -35,7 +35,8 @@
             "titleBar.inactiveForeground": "#e7e7e799"
         },
         "typescriptHero.imports.multiLineWrapThreshold": 100,
-        "typescriptHero.imports.organizeSortsByFirstSpecifier": true
+        "typescriptHero.imports.organizeSortsByFirstSpecifier": true,
+        "typescript.tsdk": "node_modules\\typescript\\lib"
     },
     "extensions": {
         "recommendations": [
@@ -44,11 +45,9 @@
             "dbaeumer.vscode-eslint",
             "eg2.tslint",
             "esbenp.prettier-vscode",
-            "heaths.vscode-guid",
             "hookyqr.beautify",
             "joelday.docthis",
             "jpoissonnier.vscode-styled-components",
-            "kisstkondoros.vscode-codemetrics",
             "rbbit.typescript-hero",
             "visualstudioexptteam.vscodeintellicode",
         ]
