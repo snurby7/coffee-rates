@@ -1,11 +1,10 @@
-import { ICoffeeProfile } from 'cr-common';
+import { ICoffeeProfile } from '@cr/common';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 
 import { CoffeeApi } from '../../api/CoffeeApi';
 import { WindowUtility } from '../../util';
 import CoffeeStars from './CoffeeStars';
-
 
 const StyledForm = styled.form`
   display: flex;

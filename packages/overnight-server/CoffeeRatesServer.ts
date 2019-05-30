@@ -1,9 +1,9 @@
 /**
  * The main access point for starting the OvernightJs server.
  */
+import { MongoConnectionUrl } from '@cr/common';
 import { Server } from '@overnightjs/core';
 import * as bodyParser from 'body-parser';
-import { MongoConnectionUrl } from 'cr-common';
 import * as express from 'express';
 import * as mongoose from 'mongoose';
 import * as path from 'path';

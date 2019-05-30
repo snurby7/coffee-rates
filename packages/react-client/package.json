@@ -1,5 +1,5 @@
 {
-    "name": "coffee-rates-react-ui",
+    "name": "@cr/react-ui",
     "license": "MIT",
     "description": "React portion of the coffee-rates",
     "version": "0.1.0",
@@ -9,7 +9,7 @@
         "@types/node": "10.12.21",
         "@types/react": "16.8.17",
         "@types/react-dom": "16.8.4",
-        "cr-common": "0.0.2",
+        "@cr/common": "0.0.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",
         "react-scripts": "3.0.1",

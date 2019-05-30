@@ -1,10 +1,10 @@
-import { Controller, Post } from '@overnightjs/core';
 import {
   ICoffeePageRequest,
   ICoffeePageResponse,
   IServerResponse,
   MongoCollections,
-} from 'cr-common';
+} from '@cr/common';
+import { Controller, Post } from '@overnightjs/core';
 import { Response } from 'express';
 import { Connection } from 'mongoose';
 

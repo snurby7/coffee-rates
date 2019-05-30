@@ -1,7 +1,6 @@
+import { ICoffeeProfile, MongoCollections } from '@cr/common';
 import { Controller, Delete, Get, Post } from '@overnightjs/core';
 import { ObjectID } from 'bson';
-import { ICoffeeProfile } from 'cr-common';
-import { MongoCollections } from 'cr-common/constants';
 import { Response } from 'express';
 import { Connection } from 'mongoose';
 

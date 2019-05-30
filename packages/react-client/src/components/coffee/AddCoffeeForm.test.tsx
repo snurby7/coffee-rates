@@ -1,4 +1,4 @@
-import { ICoffeeProfile } from 'cr-common';
+import { ICoffeeProfile } from '@cr/common';
 import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
