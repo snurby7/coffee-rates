@@ -24,7 +24,7 @@ export const CoffeeApi = {
   async addCoffee(addRequest: ICoffeeProfile): Promise<IServerResponse<void>> {
     const response: IServerResponse<void> = await ApiUtility.postRequest(
       CoffeeRoutes.addCoffee,
-      addRequest
+      addRequest,
     );
     return handleServerResponse(response);
   },
@@ -35,11 +35,11 @@ export const CoffeeApi = {
    * @returns A IServerResponse containing the coffee data
    */
   async pageCoffeeList(
-    pageRequest: ICoffeePageRequest
+    pageRequest: ICoffeePageRequest,
   ): Promise<IServerResponse<ICoffeePageResponse>> {
     const response: IServerResponse<ICoffeePageResponse> = await ApiUtility.postRequest(
       CoffeeRoutes.pageCoffees,
-      pageRequest
+      pageRequest,
     );
     return handleServerResponse(response);
   },

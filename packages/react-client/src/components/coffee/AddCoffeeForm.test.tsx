@@ -1,4 +1,4 @@
-import { ICoffeeProfile } from '@cr/common';
+import { ICoffeeProfile, IServerResponse } from '@cr/common';
 import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
@@ -13,9 +13,9 @@ describe('AddCoffeeForm', () => {
     let spyCoffeeProfile: ICoffeeProfile = {} as ICoffeeProfile;
     jest.spyOn(CoffeeApi, 'addCoffee').mockImplementation((coffeeProfile: ICoffeeProfile) => {
       spyCoffeeProfile = coffeeProfile;
-      return Promise.resolve({});
+      return Promise.resolve({} as IServerResponse<any>);
     });
-    jest.spyOn(WindowUtility, 'showAlert').mockImplementation(message => message);
+    jest.spyOn(WindowUtility, 'showAlert').mockImplementation((message) => message);
     const { getByText } = render(<AddCoffeeForm userId={'test-user-id'} />);
 
     expect(getByText(/Submit/i)).toBeTruthy();

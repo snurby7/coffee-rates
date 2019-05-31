@@ -40,20 +40,20 @@ const StyledCoffeeStarSpan = styled.span`
   flex-direction: row;
 `;
 
-type AddCoffeeFormProps = {
+interface AddCoffeeFormProps {
   userId: string;
-};
+}
 
 const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
   const defaultCoffee: ICoffeeProfile = {
-    userId,
-    roasterName: '',
     coffeeName: '',
-    region: '',
-    url: '',
-    purchaseDate: '',
     notes: '',
+    purchaseDate: '',
     rating: 0,
+    region: '',
+    roasterName: '',
+    url: '',
+    userId,
   };
   const [coffee, setCoffee] = useState(defaultCoffee);
 
@@ -64,9 +64,9 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
         WindowUtility.showAlert('Save Successful!');
         setCoffee(defaultCoffee);
       },
-      error => {
+      (error) => {
         console.log(error);
-      }
+      },
     );
   };
   // Show a save successfull message on success
@@ -75,54 +75,45 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
       <StyledLabel>
         Roaster Name
         <StyledInput
-          required
+          required={true}
           value={coffee.roasterName}
-          onChange={event => setCoffee({ ...coffee, roasterName: event.target.value })}
+          onChange={(event) => setCoffee({ ...coffee, roasterName: event.target.value })}
         />
       </StyledLabel>
       <StyledLabel>
         Coffee Name
         <StyledInput
-          required
+          required={true}
           value={coffee.coffeeName}
-          onChange={event => setCoffee({ ...coffee, coffeeName: event.target.value })}
+          onChange={(event) => setCoffee({ ...coffee, coffeeName: event.target.value })}
         />
       </StyledLabel>
       <StyledLabel>
         Region
-        <StyledInput
-          value={coffee.region}
-          onChange={event => setCoffee({ ...coffee, region: event.target.value })}
-        />
+        <StyledInput value={coffee.region} onChange={(event) => setCoffee({ ...coffee, region: event.target.value })} />
       </StyledLabel>
       <StyledLabel>
         Website
-        <StyledInput
-          value={coffee.url}
-          onChange={event => setCoffee({ ...coffee, url: event.target.value })}
-        />
+        <StyledInput value={coffee.url} onChange={(event) => setCoffee({ ...coffee, url: event.target.value })} />
       </StyledLabel>
       <StyledLabel>
         Purchase Date
         <StyledInput
           value={coffee.purchaseDate}
-          onChange={event => setCoffee({ ...coffee, purchaseDate: event.target.value })}
+          onChange={(event) => setCoffee({ ...coffee, purchaseDate: event.target.value })}
         />
       </StyledLabel>
       <StyledLabel>
         <StyledCoffeeStarSpan>
           Rating <br />
-          <CoffeeStars
-            value={coffee.rating}
-            onChange={(rating: number) => setCoffee({ ...coffee, rating })}
-          />
+          <CoffeeStars value={coffee.rating} onChange={(rating: number) => setCoffee({ ...coffee, rating })} />
         </StyledCoffeeStarSpan>
       </StyledLabel>
       <StyledLabel>
         Notes
         <StyledTextArea
           value={coffee.notes}
-          onChange={event => setCoffee({ ...coffee, notes: event.target.value })}
+          onChange={(event) => setCoffee({ ...coffee, notes: event.target.value })}
         />
       </StyledLabel>
       <StyledInputButton type="submit" value="Submit" />

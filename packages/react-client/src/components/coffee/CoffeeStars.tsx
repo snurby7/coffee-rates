@@ -17,9 +17,9 @@ const CoffeeStars = (event: CoffeeStarsProps) => {
     event.onChange(newValue);
   };
 
-  const handleIconHover = (hoverValue: number) => {
-    setHoverValue(hoverValue);
-  }
+  const handleIconHover = (newhoverValue: number) => {
+    setHoverValue(newhoverValue);
+  };
 
   return (
     <div>
@@ -28,7 +28,7 @@ const CoffeeStars = (event: CoffeeStarsProps) => {
           key={score}
           index={score}
           value={value}
-          onValueChange={handleNewValue}
+          onValueChange={() => handleNewValue(score)}
           hoverValue={hoverValue}
           onHoverValueChange={handleIconHover}
         />

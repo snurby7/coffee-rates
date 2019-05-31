@@ -6,15 +6,15 @@ import styled from 'styled-components';
  * Stylize Pagination Component and Ellipsis.
  */
 
-type ButtonProps = {
+interface IButtonProps {
   isCurrentIndex: boolean;
-};
+}
 
-const PagedButton = styled.button<ButtonProps>`
-  color: ${props => (props.isCurrentIndex ? 'red' : 'black')};
+const PagedButton = styled.button<IButtonProps>`
+  color: ${(props) => (props.isCurrentIndex ? 'red' : 'black')};
 `;
 
-type PaginationProps = {
+interface IPaginationProps {
   currentPage: number;
   pageSize: number;
   itemCount: number;
@@ -22,8 +22,8 @@ type PaginationProps = {
    * @description This will be the number to set the new page too.
    */
   onButtonClick: (pageNumber: number) => void;
-};
-const Pagination = (props: PaginationProps) => {
+}
+const Pagination = (props: IPaginationProps) => {
   const { currentPage, pageSize, itemCount, onButtonClick } = props;
   const pageCount = Math.ceil(itemCount / pageSize);
   const getDisplayButtons = (): Element[] => {
@@ -36,12 +36,12 @@ const Pagination = (props: PaginationProps) => {
           onClick={() => onButtonClick(page)}
         >
           {page + 1}
-        </PagedButton>
+        </PagedButton>,
       );
     }
     return buttons;
   };
 
-  return <span>{getDisplayButtons().map(button => button)}</span>;
+  return <span>{getDisplayButtons().map((button) => button)}</span>;
 };
 export default Pagination;

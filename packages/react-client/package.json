@@ -4,22 +4,24 @@
     "description": "React portion of the coffee-rates",
     "version": "0.1.0",
     "dependencies": {
+        "@cr/common": "0.0.2",
         "@reach/router": "^1.2.1",
         "@types/jest": "24.0.13",
         "@types/node": "10.12.21",
         "@types/react": "16.8.17",
         "@types/react-dom": "16.8.4",
-        "@cr/common": "0.0.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",
         "react-scripts": "3.0.1",
-        "typescript": "3.4.5"
+        "tslint": "^5.16.0",
+        "typescript": "3.5.1"
     },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --watchAll=false",
         "test:dev": "react-scripts test --watchAll=true",
+        "lint": "tslint --project tsconfig.json --format codeFrame",
         "eject": "react-scripts eject"
     },
     "proxy": "http://localhost:3001",
@@ -36,8 +38,11 @@
         "@types/reach__router": "^1.2.4",
         "@types/styled-components": "4.1.15",
         "eslint-plugin-react-hooks": "^1.6.0",
+        "prettier": "^1.17.1",
         "react-test-renderer": "^16.8.6",
         "react-testing-library": "^7.0.0",
-        "styled-components": "4.2.0"
+        "styled-components": "4.2.0",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-react": "^4.0.0"
     }
 }

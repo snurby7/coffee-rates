@@ -33,7 +33,7 @@ const PagedCoffee = () => {
     CoffeeApi.pageCoffeeList({
       pageStart: pageNumber,
       maxPageSize: pageSize,
-    }).then(data => {
+    }).then((data) => {
       const pagedResponse = data.response;
       setPagedCoffeeState({
         currentPage: pageNumber,
@@ -50,7 +50,7 @@ const PagedCoffee = () => {
   const { coffees, currentPage, totalCoffees } = pagedCoffeeState;
   return (
     <CoffeeProfilesList>
-      {coffees.map(coffee => (
+      {coffees.map((coffee) => (
         <CoffeeProfileItemWrapper key={coffee._id}>
           <CoffeeProfile {...coffee} />
         </CoffeeProfileItemWrapper>
