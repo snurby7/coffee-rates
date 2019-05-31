@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddCoffeeForm from '../../components/coffee/AddCoffeeForm';
+import { AddCoffeeForm } from '../../components/coffee';
 import { IReachLinkProps } from '../../contracts';
 
 interface IAddCoffeePageProps extends IReachLinkProps {

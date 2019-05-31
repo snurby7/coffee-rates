@@ -2,9 +2,9 @@ import { ICoffeeProfile } from '@cr/common';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 
-import { CoffeeApi } from '../../api/CoffeeApi';
-import { WindowUtility } from '../../util';
-import CoffeeStars from './CoffeeStars';
+import { CoffeeApi } from '../../../api/CoffeeApi';
+import { WindowUtility } from '../../../util';
+import CoffeeStars from '../CoffeeStars';
 
 const StyledForm = styled.form`
   display: flex;
@@ -90,11 +90,17 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
       </StyledLabel>
       <StyledLabel>
         Region
-        <StyledInput value={coffee.region} onChange={(event) => setCoffee({ ...coffee, region: event.target.value })} />
+        <StyledInput
+          value={coffee.region}
+          onChange={(event) => setCoffee({ ...coffee, region: event.target.value })}
+        />
       </StyledLabel>
       <StyledLabel>
         Website
-        <StyledInput value={coffee.url} onChange={(event) => setCoffee({ ...coffee, url: event.target.value })} />
+        <StyledInput
+          value={coffee.url}
+          onChange={(event) => setCoffee({ ...coffee, url: event.target.value })}
+        />
       </StyledLabel>
       <StyledLabel>
         Purchase Date
@@ -106,7 +112,10 @@ const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
       <StyledLabel>
         <StyledCoffeeStarSpan>
           Rating <br />
-          <CoffeeStars value={coffee.rating} onChange={(rating: number) => setCoffee({ ...coffee, rating })} />
+          <CoffeeStars
+            value={coffee.rating}
+            onChange={(rating: number) => setCoffee({ ...coffee, rating })}
+          />
         </StyledCoffeeStarSpan>
       </StyledLabel>
       <StyledLabel>

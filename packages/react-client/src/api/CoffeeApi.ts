@@ -30,6 +30,19 @@ export const CoffeeApi = {
   },
 
   /**
+   * @description Add a new coffee to the database
+   * @param editRequest The coffee to edit.
+   * @returns A generic server response with no response but a response code
+   */
+  async editCoffee(editRequest: ICoffeeProfile): Promise<IServerResponse<ICoffeeProfile>> {
+    const response: IServerResponse<void> = await ApiUtility.postRequest(
+      CoffeeRoutes.editCoffee,
+      editRequest,
+    );
+    return handleServerResponse(response);
+  },
+
+  /**
    * @description Page the available coffees in the server
    * @param pageRequest The request to retrieve containing where to start and the page size.
    * @returns A IServerResponse containing the coffee data

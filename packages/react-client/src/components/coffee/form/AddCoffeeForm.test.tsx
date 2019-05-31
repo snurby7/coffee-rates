@@ -2,8 +2,8 @@ import { ICoffeeProfile, IServerResponse } from '@cr/common';
 import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
-import { CoffeeApi } from '../../api/CoffeeApi';
-import { WindowUtility } from '../../util';
+import { CoffeeApi } from '../../../api/CoffeeApi';
+import { WindowUtility } from '../../../util';
 import AddCoffeeForm from './AddCoffeeForm';
 
 describe('AddCoffeeForm', () => {

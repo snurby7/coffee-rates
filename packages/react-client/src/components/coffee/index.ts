@@ -1,4 +1,4 @@
-export { default as AddCoffeeForm } from './AddCoffeeForm';
-export { default as CoffeeProfile } from './CoffeeProfile';
 export { default as CoffeeStars } from './CoffeeStars';
+export { default as AddCoffeeForm } from './form/AddCoffeeForm';
 export { default as PagedCoffee } from './PagedCoffee';
+export { default as CoffeeProfile } from './profile/CoffeeProfile';

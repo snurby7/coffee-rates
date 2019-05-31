@@ -4,7 +4,11 @@
  * @interface ICoffeeProfile
  */
 export interface ICoffeeProfile {
-  _id?: string; // this is used for Mongo which is why there's no doc
+  /**
+   * @description A unique identifier for each coffee added
+   * @memberof ICoffeeProfile
+   */
+  id?: string;
   /**
    * @description Date of purchase of the coffee. Will default to today
    * @memberof ICoffeeProfile

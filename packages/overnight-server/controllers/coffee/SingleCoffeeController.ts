@@ -4,7 +4,7 @@ import { ObjectID } from 'bson';
 import { Response } from 'express';
 import { Connection } from 'mongoose';
 
-import { IRequest } from '../../contracts';
+import { IMongoCollectionItem, IRequest } from '../../contracts';
 
 @Controller('api/coffee')
 class SingleCoffeeController {
@@ -19,9 +19,12 @@ class SingleCoffeeController {
     const coffeeId = req.params.id;
     return await this._db
       .collection(MongoCollections.Coffees)
-      .findOne<ICoffeeProfile>({ _id: new ObjectID(`${coffeeId}`) })
+      .findOne<ICoffeeProfile & IMongoCollectionItem>({ _id: new ObjectID(`${coffeeId}`) })
       .then(
         coffee => {
+          if (coffee) {
+            delete coffee._id;
+          }
           res.status(204).send(coffee);
         },
         error => {
@@ -35,7 +38,7 @@ class SingleCoffeeController {
     const coffeeId = req.params.id;
     return await this._db
       .collection(MongoCollections.Coffees)
-      .deleteOne({ _id: new ObjectID(`${coffeeId}`) })
+      .deleteOne({ id: coffeeId })
       .then(response => {
         res.status(204).send(response.result);
       });
@@ -44,18 +47,25 @@ class SingleCoffeeController {
   @Post(':id')
   public async updateCoffee(req: IRequest, res: Response): Promise<void> {
     const coffeeId = req.params.id;
+
     return await this._db
-      .collection(MongoCollections.Coffees)
-      .updateOne({ _id: new ObjectID(`${coffeeId}`) }, { $set: req.body }, { upsert: false })
-      .then(result => {
-        res.status(204).send(result.result);
+      .collection(MongoCollections.TestCoffees)
+      .updateOne({ id: coffeeId }, { $set: req.body }, { upsert: true })
+      .then(response => {
+        res.send(response.result);
       });
   }
 
   @Post('')
   public async addCoffee(req: IRequest<ICoffeeProfile>, res: Response): Promise<void> {
+    if (!req.body.id) {
+      req.body.id =
+        Math.random()
+          .toString(36)
+          .substring(2) + new Date().getTime().toString(36);
+    }
     return await this._db
-      .collection(MongoCollections.Coffees)
+      .collection(MongoCollections.TestCoffees)
       .insertOne(req.body)
       .then(
         (/* success */) => {

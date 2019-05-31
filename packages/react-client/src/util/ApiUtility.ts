@@ -19,33 +19,37 @@ export const ApiUtility = {
     if (query && !useFormatter) {
       route = UrlFormatUtility.formatUrl(route, query);
     }
-    const response = (await fetch(route).catch(error => {
+    const response = (await fetch(route).catch((error) => {
       alert(error);
     })) as Response;
     const result = await response.json();
     return result;
   },
-  async postRequest<T extends any>(route: string, data: T) {
+
+  async postRequest<T extends any>(route: string, data: T, replaceTemplates: boolean = true) {
+    if (replaceTemplates) {
+      route = UrlFormatUtility.formatUrl(route, data);
+    }
+
     const response = (await fetch(route, {
-      method: 'POST',
+      body: JSON.stringify(data),
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
-    }).catch(error => {
+      method: 'POST',
+    }).catch((error) => {
       alert(error);
     })) as Response;
-    console.log(response);
     const result = await response.json();
     return result;
   },
   async deleteRequest<T extends any>(route: string, data: T) {
     const response = (await fetch(route, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
-    }).catch(error => {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'DELETE',
+    }).catch((error) => {
       alert(error);
     })) as Response;
     return await response.json();

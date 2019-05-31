@@ -22,6 +22,7 @@
         "member-access": false,
         "member-ordering": true,
         "no-console": true,
+        "no-var-requires": false,
         "no-unused-variable": true,
         "no-var-keyword": false,
         "object-literal-sort-keys": true,

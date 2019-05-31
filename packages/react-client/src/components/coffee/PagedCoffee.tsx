@@ -1,10 +1,10 @@
 import { ICoffeeProfile } from '@cr/common';
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { CoffeeApi } from '../../api/CoffeeApi';
 import { Pagination } from '../pagination';
-import CoffeeProfile from './CoffeeProfile';
+import CoffeeProfile from './profile/CoffeeProfile';
 
 const CoffeeProfilesList = styled.div``;
 const CoffeeProfileItemWrapper = styled.div`
@@ -15,29 +15,29 @@ const CoffeeProfileItemWrapper = styled.div`
   border-radius: 3px;
 `;
 
-type PagedCoffeeState = {
+interface IPagedCoffeeState {
   currentPage: number;
   coffees: ICoffeeProfile[];
   totalCoffees: number;
-};
+}
 
 const PagedCoffee = () => {
   const [pagedCoffeeState, setPagedCoffeeState] = useState({
     coffees: [] as ICoffeeProfile[],
-    totalCoffees: 0,
     currentPage: 0,
-  } as PagedCoffeeState);
+    totalCoffees: 0,
+  } as IPagedCoffeeState);
   const pageSize = 2;
 
   const updateCoffeeList = (pageNumber: number): void => {
     CoffeeApi.pageCoffeeList({
-      pageStart: pageNumber,
       maxPageSize: pageSize,
+      pageStart: pageNumber,
     }).then((data) => {
       const pagedResponse = data.response;
       setPagedCoffeeState({
-        currentPage: pageNumber,
         coffees: pagedResponse.data,
+        currentPage: pageNumber,
         totalCoffees: pagedResponse.totalResults,
       });
     });
@@ -51,7 +51,7 @@ const PagedCoffee = () => {
   return (
     <CoffeeProfilesList>
       {coffees.map((coffee) => (
-        <CoffeeProfileItemWrapper key={coffee._id}>
+        <CoffeeProfileItemWrapper key={coffee.id}>
           <CoffeeProfile {...coffee} />
         </CoffeeProfileItemWrapper>
       ))}

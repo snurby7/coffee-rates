@@ -2,6 +2,10 @@ import { ICoffeeProfile } from '@cr/common';
 import React from 'react';
 import styled from 'styled-components';
 
+import { CoffeeApi } from '../../../api/CoffeeApi';
+import editIcon from '../../../resources/svg/edit-icon.svg';
+import openIcon from '../../../resources/svg/open-icon.svg';
+
 const ProfileContainer = styled.div``;
 const ItalicizeText = styled.span`
   font-style: italic;
@@ -11,7 +15,18 @@ const AdditionalInfoContainer = styled.div`
   display: flex;
 `;
 
+const ClickableImage = styled.img`
+  cursor: pointer;
+`;
+
 const CoffeeProfile = (coffee: ICoffeeProfile) => {
+  const onClickEditCoffee = async () => {
+    // pass this to a dialog of some sort, but for now a PoC
+
+    const result = await CoffeeApi.editCoffee(coffee);
+    console.log(result);
+  };
+
   return (
     <ProfileContainer>
       {coffee.url && (
@@ -40,15 +55,16 @@ const CoffeeProfile = (coffee: ICoffeeProfile) => {
             </span>
           )}
           {coffee.notes && (
-            <button
+            <ClickableImage
+              src={openIcon}
               onClick={() => {
                 // this is bad for performance
                 window.alert(coffee.notes);
               }}
-            >
-              More Information
-            </button>
+            />
           )}
+          {/* Will need to make sure the userId matches the userId on the coffee */}
+          <ClickableImage src={editIcon} onClick={onClickEditCoffee} />
         </div>
       </AdditionalInfoContainer>
     </ProfileContainer>
