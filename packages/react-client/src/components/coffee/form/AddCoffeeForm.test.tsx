@@ -3,7 +3,6 @@ import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
 import { CoffeeApi } from '../../../api/CoffeeApi';
-import { WindowUtility } from '../../../util';
 import AddCoffeeForm from './AddCoffeeForm';
 
 describe('AddCoffeeForm', () => {
@@ -15,7 +14,6 @@ describe('AddCoffeeForm', () => {
       spyCoffeeProfile = coffeeProfile;
       return Promise.resolve({} as IServerResponse<any>);
     });
-    jest.spyOn(WindowUtility, 'showAlert').mockImplementation((message) => message);
     const { getByText } = render(<AddCoffeeForm userId={'test-user-id'} />);
 
     expect(getByText(/Submit/i)).toBeTruthy();

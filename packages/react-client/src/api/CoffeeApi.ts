@@ -1,11 +1,11 @@
 import {
+  ApiUtility,
   ICoffeePageRequest,
   ICoffeePageResponse,
   ICoffeeProfile,
   IServerResponse,
 } from '@cr/common';
 
-import { ApiUtility } from '../util';
 import { CoffeeRoutes } from './CoffeeRoutes';
 
 const handleServerResponse = (response: IServerResponse<any>) => {
@@ -34,7 +34,9 @@ export const CoffeeApi = {
    * @param editRequest The coffee to edit.
    * @returns A generic server response with no response but a response code
    */
-  async editCoffee(editRequest: ICoffeeProfile): Promise<IServerResponse<ICoffeeProfile>> {
+  async editCoffee(
+    editRequest: ICoffeeProfile,
+  ): Promise<IServerResponse<ICoffeeProfile>> {
     const response: IServerResponse<void> = await ApiUtility.postRequest(
       CoffeeRoutes.editCoffee,
       editRequest,
@@ -50,10 +52,9 @@ export const CoffeeApi = {
   async pageCoffeeList(
     pageRequest: ICoffeePageRequest,
   ): Promise<IServerResponse<ICoffeePageResponse>> {
-    const response: IServerResponse<ICoffeePageResponse> = await ApiUtility.postRequest(
-      CoffeeRoutes.pageCoffees,
-      pageRequest,
-    );
+    const response: IServerResponse<
+      ICoffeePageResponse
+    > = await ApiUtility.postRequest(CoffeeRoutes.pageCoffees, pageRequest);
     return handleServerResponse(response);
   },
 };

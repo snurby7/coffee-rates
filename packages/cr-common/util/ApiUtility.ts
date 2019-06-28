@@ -1,5 +1,3 @@
-import urlFormatter from 'url';
-
 import { UrlFormatUtility } from './UrlFormatUtility';
 
 export const ApiUtility = {
@@ -9,14 +7,10 @@ export const ApiUtility = {
    * @template T The Object that the query is of the type of
    * @param {string} route The route that needs to be hit
    * @param {T} [query] The optional query object
-   * @param {boolean} [useFormatter=false] Whether or not to use the urlFormatter format method
    * @returns A promise of type any
    */
-  async getRequest<T extends any>(route: string, query?: T, useFormatter: boolean = false) {
-    if (useFormatter) {
-      route += urlFormatter.format({ query });
-    }
-    if (query && !useFormatter) {
+  async getRequest<T extends any>(route: string, query?: T) {
+    if (query) {
       route = UrlFormatUtility.formatUrl(route, query);
     }
     const response = (await fetch(route).catch((error) => {

@@ -22,7 +22,6 @@ const ClickableImage = styled.img`
 const CoffeeProfile = (coffee: ICoffeeProfile) => {
   const onClickEditCoffee = async () => {
     // pass this to a dialog of some sort, but for now a PoC
-
     const result = await CoffeeApi.editCoffee(coffee);
     console.log(result);
   };
@@ -39,30 +38,25 @@ const CoffeeProfile = (coffee: ICoffeeProfile) => {
           @createIssue Coffee Cup Rating Viewer
           @body Out of score from 1 - 100 fill in an coffee cup so the more full, the better
         */}
-      Placeholder could be a coffee colored to match the percentage of (rating / 5)
+      Placeholder could be a coffee colored to match the percentage of (rating /
+      5)
       <AdditionalInfoContainer>
         <div>
           <img src="https://via.placeholder.com/150" />
         </div>
         <div>
           <span>
-            <ItalicizeText>Roaster</ItalicizeText> <strong>{coffee.roasterName}</strong>
+            <ItalicizeText>Roaster</ItalicizeText>{' '}
+            <strong>{coffee.roasterName}</strong>
           </span>
           <br />
           {coffee.region && (
             <span>
-              <ItalicizeText>Region</ItalicizeText> <strong>{coffee.region}</strong>
+              <ItalicizeText>Region</ItalicizeText>{' '}
+              <strong>{coffee.region}</strong>
             </span>
           )}
-          {coffee.notes && (
-            <ClickableImage
-              src={openIcon}
-              onClick={() => {
-                // this is bad for performance
-                window.alert(coffee.notes);
-              }}
-            />
-          )}
+          {coffee.notes && <ClickableImage src={openIcon} />}
           {/* Will need to make sure the userId matches the userId on the coffee */}
           <ClickableImage src={editIcon} onClick={onClickEditCoffee} />
         </div>

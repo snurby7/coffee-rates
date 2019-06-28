@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import CoffeeIcon from './CoffeeIcon';
 
-type CoffeeStarsProps = {
+interface CoffeeStarsProps {
   value: number;
   onChange: (newValue: number) => void;
-};
+}
 
 const CoffeeStars = (event: CoffeeStarsProps) => {
   const coffeeScores: number[] = [1, 2, 3, 4, 5];

@@ -13,7 +13,8 @@
         "jshint.enable": false,
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": true,
+            "source.fixAll": true
         },
         "files.exclude": {
             "**/.git": true,
@@ -24,15 +25,10 @@
             },
         },
         "workbench.colorCustomizations": {
-            "activityBar.background": "#7f86e9",
-            "activityBar.foreground": "#15202b",
-            "activityBar.inactiveForeground": "#15202b99",
-            "activityBarBadge.background": "#f6c9cc",
-            "activityBarBadge.foreground": "#15202b",
-            "titleBar.activeBackground": "#535de2",
-            "titleBar.inactiveBackground": "#535de299",
-            "titleBar.activeForeground": "#e7e7e7",
-            "titleBar.inactiveForeground": "#e7e7e799"
+            "titleBar.activeBackground": "#00b3e6",
+            "titleBar.inactiveBackground": "#00b3e699",
+            "titleBar.activeForeground": "#15202b",
+            "titleBar.inactiveForeground": "#15202b99"
         },
         "typescriptHero.imports.multiLineWrapThreshold": 100,
         "typescriptHero.imports.organizeSortsByFirstSpecifier": true,

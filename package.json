@@ -7,7 +7,7 @@
         "packages/*"
     ],
     "scripts": {
-        "start:react": "concurrently --kill-others-on-fail \"yarn start:overnightServer\" \"yarn start:react-client\"",
+        "start": "concurrently --kill-others-on-fail \"yarn start:overnightServer\" \"yarn start:react-client\"",
         "start:overnightServer": "cd packages/overnight-server && yarn start",
         "start:react-client": "cd packages/react-client && yarn start",
         "test": "yarn workspaces run test"
