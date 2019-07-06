@@ -7,33 +7,62 @@ interface CoffeeStarsProps {
   onChange: (newValue: number) => void;
 }
 
-const CoffeeStars = (event: CoffeeStarsProps) => {
-  const coffeeScores: number[] = [1, 2, 3, 4, 5];
-  const [value, setValue] = useState(0);
-  const [hoverValue, setHoverValue] = useState(0);
+type IconWrapperProp = {
+  rating: number;
+  value: number;
+  hoverValue: number;
+  onClick: (newValue: number) => void;
+  handleIconHover: (hoverValue: number) => void;
+};
 
-  const handleNewValue = (newValue: number) => {
-    setValue(newValue);
-    event.onChange(newValue);
+const IconWrapper = ({
+  rating,
+  value,
+  onClick,
+  hoverValue,
+  handleIconHover,
+}: IconWrapperProp) => {
+  const onIconClick = () => onClick(rating);
+
+  return (
+    <CoffeeIcon
+      key={rating}
+      starRating={rating}
+      value={value}
+      onClick={onIconClick}
+      hoverValue={hoverValue}
+      onHover={handleIconHover}
+    />
+  );
+};
+
+const CoffeeStars = ({ onChange }: CoffeeStarsProps) => {
+  const coffeeRatings: number[] = [1, 2, 3, 4, 5];
+  const [rating, setRating] = useState<number>(0);
+  const [hoveredIconValue, setHoveredIconValue] = useState<number>(0);
+
+  const onClick = (newValue: number) => {
+    setRating(newValue);
+    onChange(newValue);
   };
 
   const handleIconHover = (newhoverValue: number) => {
-    setHoverValue(newhoverValue);
+    setHoveredIconValue(newhoverValue);
   };
 
   return (
-    <div>
-      {coffeeScores.map((score: number) => (
-        <CoffeeIcon
+    <>
+      {coffeeRatings.map((score: number) => (
+        <IconWrapper
           key={score}
-          index={score}
-          value={value}
-          onValueChange={() => handleNewValue(score)}
-          hoverValue={hoverValue}
-          onHoverValueChange={handleIconHover}
+          rating={score}
+          value={rating}
+          onClick={onClick}
+          hoverValue={hoveredIconValue}
+          handleIconHover={handleIconHover}
         />
       ))}
-    </div>
+    </>
   );
 };
 

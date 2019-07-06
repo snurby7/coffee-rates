@@ -51,23 +51,14 @@ interface AddCoffeeFormProps {
 }
 
 const AddCoffeeForm = ({ userId }: AddCoffeeFormProps) => {
-  const defaultCoffee = {} as ICoffeeProfile;
+  const defaultCoffee = { userId, rating: 0 } as ICoffeeProfile;
 
   const [coffee, setCoffee] = useReducer(
     (state: ICoffeeProfile, newState) => ({
       ...state,
       ...newState,
     }),
-    {
-      coffeeName: '',
-      notes: '',
-      purchaseDate: '',
-      rating: 0,
-      region: '',
-      roasterName: '',
-      url: '',
-      userId,
-    },
+    defaultCoffee,
   );
 
   const handleChange = (event: any) => {

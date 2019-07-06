@@ -1,46 +1,74 @@
+import Color from 'color';
 import React, { SyntheticEvent, useState } from 'react';
+import styled from 'styled-components';
+
+const StyledSvg = styled.svg<any>`
+  fill: ${(props) => {
+    const selectedColor = Color(props.theme.colors.secondary)
+      .alpha(0.9)
+      .string();
+    const defaultColor = Color(props.theme.colors.black)
+      .alpha(0.1)
+      .string();
+    const hoverColor = Color(selectedColor)
+      .alpha(0.5)
+      .string();
+    let fillColor = '';
+
+    if (props.isHovering) {
+      fillColor = hoverColor;
+    } else {
+      fillColor =
+        props.starRating < props.hoverValue ? hoverColor : defaultColor;
+    }
+    if (props.hoverValue === 0) {
+      fillColor =
+        props.starRating <= props.value ? selectedColor : defaultColor;
+    }
+    return fillColor;
+  }};
+`;
 
 interface ICoffeeIconProps {
-  index: number;
+  starRating: number;
   value: number;
   hoverValue: number;
-  onValueChange: (newValue: number) => void;
-  onHoverValueChange: (newHoverValue: number) => void;
+  onClick: (newValue: number) => void;
+  onHover: (newHoverValue: number) => void;
+  theme?: any;
 }
 
-const CoffeeIcon = (props: ICoffeeIconProps) => {
-  const [hover, setHover] = useState(false);
-  const selectedColor = '#4e342e';
-  const notSelectedColor = '#bdbdbd';
-  const hoverColor = '#1565c0';
-  let fillColor: string;
+const CoffeeIcon = ({
+  starRating,
+  value,
+  hoverValue,
+  onClick,
+  onHover,
+  theme,
+}: ICoffeeIconProps) => {
+  const [isHovering, setIsHovering] = useState<boolean>(false);
 
-  if (hover) {
-    fillColor = hoverColor;
-  } else {
-    fillColor = props.index < props.hoverValue ? hoverColor : notSelectedColor;
-  }
-  if (props.hoverValue === 0) {
-    fillColor = props.index <= props.value ? selectedColor : notSelectedColor;
-  }
-
-  const toggleHover = () => {
-    setHover(!hover);
-    props.onHoverValueChange(!hover ? props.index : 0);
+  const onIconHover = () => {
+    setIsHovering(!isHovering);
+    onHover(!isHovering ? starRating : 0);
   };
 
   const handleClick = (e: SyntheticEvent) => {
     e.preventDefault();
-    props.onValueChange(props.index);
-    props.onHoverValueChange(0);
+    onClick(starRating);
+    onHover(0);
   };
 
   return (
     <span onClick={handleClick}>
-      <svg
-        style={{ fill: fillColor }}
-        onMouseEnter={toggleHover}
-        onMouseLeave={toggleHover}
+      <StyledSvg
+        theme={theme}
+        value={value}
+        hoverValue={hoverValue}
+        starRating={starRating}
+        isHovering={isHovering}
+        onMouseEnter={onIconHover}
+        onMouseLeave={onIconHover}
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
@@ -76,7 +104,7 @@ const CoffeeIcon = (props: ICoffeeIconProps) => {
             />
           </g>
         </g>
-      </svg>
+      </StyledSvg>
     </span>
   );
 };
