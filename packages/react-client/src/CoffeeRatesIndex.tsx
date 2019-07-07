@@ -11,8 +11,8 @@ export default class CoffeeRatesIndex extends Component {
       <ThemeProvider theme={CoffeeTheme}>
         <Router>
           {/* TODO: Ideally this will be a login page if https://github.com/snurby7/coffee-rates/issues/20 is ever done  */}
-          <AddCoffeePage path="/" />
-          <LoginPage path="/login" />
+          <AddCoffeePage path="/coffee-add" />
+          <LoginPage path="/" />
           <StagingArea path="/staging" />
         </Router>
       </ThemeProvider>

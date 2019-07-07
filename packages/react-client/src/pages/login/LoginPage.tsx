@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { IReachLinkProps } from '../../contracts';
+import CreateAccount from './CreateAccount';
+import Login from './Login';
 
 const LoginPage = ({  }: IReachLinkProps) => {
-  return <div>Login Page coming soon https://github.com/snurby7/coffee-rates/issues/20</div>;
+  const [isNewAccount, setIsNewAccount] = useState(true);
+  const toggleForm = () => setIsNewAccount(!isNewAccount);
+
+  return (
+    <>
+      {isNewAccount && <CreateAccount />}
+      {!isNewAccount && <Login />}
+      <button onClick={toggleForm}>Toggle</button>
+    </>
+  );
 };
 
 export default LoginPage;

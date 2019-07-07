@@ -3,6 +3,8 @@ import {
   ICoffeePageRequest,
   ICoffeePageResponse,
   ICoffeeProfile,
+  ICreateAccountRequest,
+  ILoginRequest,
   IServerResponse,
 } from '@cr/common';
 
@@ -21,40 +23,51 @@ export const CoffeeApi = {
    * @param addRequest The newly created coffee from the form.
    * @returns A generic server response with no response but a response code
    */
-  async addCoffee(addRequest: ICoffeeProfile): Promise<IServerResponse<void>> {
+  async addCoffee(request: ICoffeeProfile): Promise<IServerResponse<void>> {
     const response: IServerResponse<void> = await ApiUtility.postRequest(
       CoffeeRoutes.addCoffee,
-      addRequest,
+      request,
     );
     return handleServerResponse(response);
   },
 
   /**
    * @description Add a new coffee to the database
-   * @param editRequest The coffee to edit.
+   * @param request The coffee to edit.
    * @returns A generic server response with no response but a response code
    */
   async editCoffee(
-    editRequest: ICoffeeProfile,
+    request: ICoffeeProfile,
   ): Promise<IServerResponse<ICoffeeProfile>> {
     const response: IServerResponse<void> = await ApiUtility.postRequest(
       CoffeeRoutes.editCoffee,
-      editRequest,
+      request,
     );
     return handleServerResponse(response);
   },
 
   /**
    * @description Page the available coffees in the server
-   * @param pageRequest The request to retrieve containing where to start and the page size.
+   * @param request The request to retrieve containing where to start and the page size.
    * @returns A IServerResponse containing the coffee data
    */
   async pageCoffeeList(
-    pageRequest: ICoffeePageRequest,
+    request: ICoffeePageRequest,
   ): Promise<IServerResponse<ICoffeePageResponse>> {
     const response: IServerResponse<
       ICoffeePageResponse
-    > = await ApiUtility.postRequest(CoffeeRoutes.pageCoffees, pageRequest);
+    > = await ApiUtility.postRequest(CoffeeRoutes.pageCoffees, request);
     return handleServerResponse(response);
+  },
+
+  async login(request: ILoginRequest): Promise<IServerResponse<any>> {
+    // TODO endpoint
+    return Promise.resolve({} as IServerResponse<any>);
+  },
+
+  async createAccount(
+    request: ICreateAccountRequest,
+  ): Promise<IServerResponse<any>> {
+    return Promise.resolve({} as IServerResponse<any>);
   },
 };
