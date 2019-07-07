@@ -29,7 +29,7 @@ const CoffeeProfile = (coffee: ICoffeeProfile) => {
   return (
     <ProfileContainer>
       {coffee.url && (
-        <a href={coffee.url} target="_blank">
+        <a href={coffee.url} rel="noopener noreferrer" target="_blank">
           <h2>{coffee.coffeeName}</h2>
         </a>
       )}
@@ -42,7 +42,7 @@ const CoffeeProfile = (coffee: ICoffeeProfile) => {
       5)
       <AdditionalInfoContainer>
         <div>
-          <img src="https://via.placeholder.com/150" />
+          <img alt="placeholder" src="https://via.placeholder.com/150" />
         </div>
         <div>
           <span>

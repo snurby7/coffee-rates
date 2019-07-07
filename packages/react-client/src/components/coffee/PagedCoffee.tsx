@@ -45,7 +45,7 @@ const PagedCoffee = () => {
 
   useEffect(() => {
     updateCoffeeList(pagedCoffeeState.currentPage);
-  }, []);
+  }, [pagedCoffeeState.currentPage]);
 
   const { coffees, currentPage, totalCoffees } = pagedCoffeeState;
   return (
